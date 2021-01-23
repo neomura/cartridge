@@ -29,7 +29,7 @@ function cartridge_engraving_sides() = 32;
 
 function cartridge_wall_thickness() = 1.6;
 
-function cartridge_friction_fit_tolerance() = 0.05;
+function cartridge_friction_fit_tolerance() = -0.05;
 
 function cartridge_width() = cartridge_wall_thickness() + cartridge_pcb_tolerance() + cartridge_pcb_width() + cartridge_pcb_tolerance() + cartridge_wall_thickness();
 function cartridge_height() = cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion() + cartridge_pcb_height() + cartridge_pcb_tolerance() + cartridge_wall_thickness();
