@@ -6,11 +6,11 @@ difference() {
   // back plate.
   translate([
     0,
-    cartridge_depth() / -2 + cartridge_wall_thickness(),
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
     0,
   ]) {
     rotate([90, 0, 0]) {
-      linear_extrude(cartridge_wall_thickness()) {
+      linear_extrude(cartridge_engraving_depth() + cartridge_wall_thickness()) {
         hull() {
           // bottom left.
           translate([
@@ -150,7 +150,7 @@ difference() {
   // friction fit back pcb margin (outer).
   translate([
     cartridge_width() / -2 + cartridge_wall_thickness() + cartridge_friction_fit_tolerance(),
-    cartridge_depth() / -2 + cartridge_wall_thickness(),
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
     cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion() + cartridge_friction_fit_tolerance(),
   ]) {
     cube([
@@ -163,7 +163,7 @@ difference() {
   // friction fit back pcb margin (inner).
   translate([
     cartridge_width() / -2 + cartridge_wall_thickness() + cartridge_pcb_margin(),
-    cartridge_depth() / -2 + cartridge_wall_thickness(),
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
     cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion() + cartridge_pcb_margin(),
   ]) {
     cube([
@@ -177,7 +177,7 @@ difference() {
 // friction fit left connector.
 translate([
   cartridge_connector_spacing() / -2 + cartridge_friction_fit_tolerance() - cartridge_connector_tolerance() - cartridge_connector_stand_width(),
-  cartridge_depth() / -2 + cartridge_wall_thickness(),
+  cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
   0,
 ]) {
   cube([
@@ -190,7 +190,7 @@ translate([
 // friction fit right connector.
 translate([
   cartridge_connector_spacing() / 2 + cartridge_friction_fit_tolerance() - cartridge_connector_tolerance(),
-  cartridge_depth() / -2 + cartridge_wall_thickness(),
+  cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
   0,
 ]) {
   cube([

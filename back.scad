@@ -11,7 +11,7 @@ difference() {
         0,
       ]) {
         rotate([90, 0, 0]) {
-          linear_extrude(cartridge_depth() - cartridge_wall_thickness()) {
+          linear_extrude(cartridge_depth() - cartridge_wall_thickness() - cartridge_engraving_depth()) {
             hull() {
               // bottom left.
               translate([
@@ -65,7 +65,7 @@ difference() {
       // pcb and front clearance cutout.
       translate([
         cartridge_width() / -2 + cartridge_wall_thickness(),
-        cartridge_depth() / -2 + cartridge_wall_thickness(),
+        cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
         cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion(),
       ]) {
         cube([
@@ -106,7 +106,7 @@ difference() {
   // pin cutout for left connector.
   translate([
     cartridge_connector_spacing() / -2 - cartridge_connector_tolerance() - cartridge_connector_stand_width(),
-    cartridge_depth() / -2 + cartridge_wall_thickness(),
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
     0,
   ]) {
     cube([
@@ -119,7 +119,7 @@ difference() {
   // pin cutout for right connector.
   translate([
     cartridge_connector_spacing() / 2 - cartridge_connector_tolerance(),
-    cartridge_depth() / -2 + cartridge_wall_thickness(),
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
     0,
   ]) {
     cube([
