@@ -13,4 +13,5 @@ cartridge format for neomura retro games console.
 | [back.scad](./back.scad)                 | openscad model for back half.     |
 | [front.scad](./front.scad)               | openscad model for front half.    |
 | [slot-cutout.scad](./slot-cutout.scad)   | openscad module for slot cutout.  |
+| [slot-wall.scad](./slot-wall.scad)       | openscad module for slot wall.    |
 | [slot-support.scad](./slot-support.scad) | openscad module for slot support. |
