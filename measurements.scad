@@ -15,8 +15,8 @@ function cartridge_connector_stand_width() = cartridge_pad_spacing() * 6 + 0.5;
 function cartridge_connector_stand_length() = cartridge_pad_spacing();
 function cartridge_connector_stand_inset() = cartridge_pad_spacing() / 2;
 function cartridge_connector_pin_protrusion() = 4.4;
-function cartridge_connector_pin_inset() = 0.1;
-function cartridge_connector_tolerance() = 0.1;
+function cartridge_connector_pin_inset() = 4;
+function cartridge_connector_tolerance() = 0.25;
 function cartridge_connector_spacing() = cartridge_pad_spacing();
 
 function cartridge_engraving_margin() = 2;
