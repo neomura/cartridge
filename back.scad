@@ -128,4 +128,18 @@ difference() {
       cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion() + cartridge_connector_stand_inset() + cartridge_connector_stand_length(),
     ]);
   };
+
+  // remove a little from the center pillar as it tends to distort the the back
+  // panel with the friction fit.
+  translate([
+    - cartridge_connector_tolerance() - cartridge_connector_spacing() / 2,
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
+    0,
+  ]) {
+    cube([
+      cartridge_connector_tolerance() + cartridge_connector_spacing() + cartridge_connector_tolerance(),
+      cartridge_pcb_front_clearance() / 2,
+      cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion(),
+    ]);
+  };
 };
