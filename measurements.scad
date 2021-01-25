@@ -35,4 +35,4 @@ function cartridge_width() = cartridge_wall_thickness() + cartridge_pcb_toleranc
 function cartridge_height() = cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion() + cartridge_pcb_height() + cartridge_pcb_tolerance() + cartridge_wall_thickness();
 function cartridge_depth() = cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_front_clearance() + cartridge_pcb_tolerance() + cartridge_pcb_thickness() + cartridge_pcb_tolerance() + cartridge_pcb_back_clearance() + cartridge_wall_thickness();
 
-function cartridge_slot_tolerance() = 0.1;
+function cartridge_slot_tolerance() = 0.175;
