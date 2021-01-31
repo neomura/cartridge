@@ -1,19 +1,18 @@
-# neomura > cartridge
+# neomura/cartridge
 
-cartridge format for neomura retro games console.
-
-[mit licensed](./license.md).
+Mechanical specification for the Neomura retro games console's cartridges and corresponding slots.
 
 ## contents
 
-| document                                                             | description                       |
+| Link                                                                 | description                       |
 | -------------------------------------------------------------------- | --------------------------------- |
-| [measurements.md](./measurements.md)                                 | specification for measurements.   |
-| [measurements.scad](./measurements.scad)                             | openscad module for measurements. |
-| [back.scad](./back.scad)                                             | openscad model for back half.     |
-| [front.scad](./front.scad)                                           | openscad model for front half.    |
-| [slot-cutout.scad](./slot-cutout.scad)                               | openscad module for slot cutout.  |
-| [slot-wall.scad](./slot-wall.scad)                                   | openscad module for slot wall.    |
-| [slot-support.scad](./slot-support.scad)                             | openscad module for slot support. |
-| [cartridge.pretty/slot.kicad_mod](./cartridge.pretty/slot.kicad_mod) | kicad footprint for slot.         |
-| [cartridge.lib](./cartridge.lib)                                     | kicad symbol for connector.       |
+| [License](./license.md)                                              | MIT License.                      |
+| [measurements.md](./measurements.md)                                 | Specification for measurements.   |
+| [measurements.scad](./measurements.scad)                             | OpenSCAD module for measurements. |
+| [back.scad](./back.scad)                                             | OpenSCAD model for back half.     |
+| [front.scad](./front.scad)                                           | OpenSCAD model for front half.    |
+| [slot-cutout.scad](./slot-cutout.scad)                               | OpenSCAD module for slot cutout.  |
+| [slot-wall.scad](./slot-wall.scad)                                   | OpenSCAD module for slot wall.    |
+| [slot-support.scad](./slot-support.scad)                             | OpenSCAD module for slot support. |
+| [cartridge.pretty/slot.kicad_mod](./cartridge.pretty/slot.kicad_mod) | KiCad footprint for slot.         |
+| [cartridge.lib](./cartridge.lib)                                     | KiCad symbol for connector.       |
