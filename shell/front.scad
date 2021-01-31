@@ -1,9 +1,8 @@
-use <measurements.scad>;
-use <submodules/neomura/logo/logo.scad>;
-//include <front.scad>;
+use <../measurements.scad>;
+use <../submodules/neomura/logo/logo.scad>;
 
 difference() {
-  // back plate.
+  // Back plate.
   translate([
     0,
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
@@ -12,7 +11,7 @@ difference() {
     rotate([90, 0, 0]) {
       linear_extrude(cartridge_engraving_depth() + cartridge_wall_thickness()) {
         hull() {
-          // bottom left.
+          // Bottom left.
           translate([
             cartridge_width() / -2 + cartridge_wall_thickness(),
             cartridge_wall_thickness(),
@@ -20,7 +19,7 @@ difference() {
             circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
           }
 
-          // bottom right.
+          // Bottom right.
           translate([
             cartridge_width() / 2 - cartridge_wall_thickness(),
             cartridge_wall_thickness(),
@@ -28,7 +27,7 @@ difference() {
             circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
           }
 
-          // top left.
+          // Top left.
           translate([
             cartridge_width() / -2 + cartridge_wall_thickness(),
             cartridge_height() - cartridge_wall_thickness(),
@@ -36,7 +35,7 @@ difference() {
             circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
           }
 
-          // top right.
+          // Top right.
           translate([
             cartridge_width() / 2 - cartridge_wall_thickness(),
             cartridge_height() - cartridge_wall_thickness(),
@@ -48,7 +47,7 @@ difference() {
     };
   };
 
-  // engraving.
+  // Engraving.
   translate([
     0,
     cartridge_depth() / -2 + cartridge_engraving_depth(),
@@ -56,10 +55,10 @@ difference() {
   ]) {
     rotate([90, 0, 0]) {
       linear_extrude(cartridge_engraving_depth()) {
-        // grip.
+        // Grip.
         difference() {
           hull() {
-            // top left.
+            // Top left.
             translate([
               - cartridge_width() / 2 + cartridge_engraving_margin() + cartridge_engraving_radius(),
               cartridge_height() - cartridge_engraving_margin() - cartridge_engraving_radius(),
@@ -67,7 +66,7 @@ difference() {
               circle(r = cartridge_engraving_radius(), $fn = cartridge_engraving_sides());
             };
 
-            // top right.
+            // Top right.
             translate([
               cartridge_width() / 2 - cartridge_engraving_margin() - cartridge_engraving_radius(),
               cartridge_height() - cartridge_engraving_margin() - cartridge_engraving_radius(),
@@ -75,7 +74,7 @@ difference() {
               circle(r = cartridge_engraving_radius(), $fn = cartridge_engraving_sides());
             };
 
-            // bottom left.
+            // Bottom left.
             translate([
               - cartridge_width() / 2 + cartridge_engraving_margin() + cartridge_engraving_radius(),
               cartridge_height() - cartridge_engraving_margin() - cartridge_engraving_radius() - cartridge_logo_height(),
@@ -83,7 +82,7 @@ difference() {
               circle(r = cartridge_engraving_radius(), $fn = cartridge_engraving_sides());
             };
 
-            // bottom right.
+            // Bottom right.
             translate([
               cartridge_width() / 2 - cartridge_engraving_margin() - cartridge_engraving_radius(),
               cartridge_height() - cartridge_engraving_margin() - cartridge_engraving_radius() - cartridge_logo_height(),
@@ -100,9 +99,9 @@ difference() {
           }
         };
 
-        // label.
+        // Label.
         hull() {
-          // bottom left.
+          // Bottom left.
           translate([
             - cartridge_width() / 2 + cartridge_engraving_margin() + cartridge_engraving_radius(),
             cartridge_engraving_margin() + cartridge_arrow_height() + cartridge_engraving_margin() + cartridge_engraving_radius(),
@@ -110,7 +109,7 @@ difference() {
             circle(r = cartridge_engraving_radius(), $fn = cartridge_engraving_sides());
           };
 
-          // bottom right.
+          // Bottom right.
           translate([
             cartridge_width() / 2 - cartridge_engraving_margin() - cartridge_engraving_radius(),
             cartridge_engraving_margin() + cartridge_arrow_height() + cartridge_engraving_margin() + cartridge_engraving_radius(),
@@ -118,7 +117,7 @@ difference() {
             circle(r = cartridge_engraving_radius(), $fn = cartridge_engraving_sides());
           };
 
-          // top left.
+          // Top left.
           translate([
             - cartridge_width() / 2 + cartridge_engraving_margin() + cartridge_engraving_radius(),
             cartridge_height() - cartridge_engraving_margin() - cartridge_engraving_radius() - cartridge_logo_height() - cartridge_engraving_radius() - cartridge_engraving_margin() - cartridge_engraving_radius(),
@@ -126,7 +125,7 @@ difference() {
             circle(r = cartridge_engraving_radius(), $fn = cartridge_engraving_sides());
           };
 
-          // top right.
+          // Top right.
           translate([
             cartridge_width() / 2 - cartridge_engraving_margin() - cartridge_engraving_radius(),
             cartridge_height() - cartridge_engraving_margin() - cartridge_engraving_radius() - cartridge_logo_height() - cartridge_engraving_radius() - cartridge_engraving_margin() - cartridge_engraving_radius(),
@@ -135,7 +134,7 @@ difference() {
           };
         };
 
-        // arrow.
+        // Arrow.
         polygon([
           [0, cartridge_engraving_margin()],
           [cartridge_arrow_width() / -2, cartridge_engraving_margin() + cartridge_arrow_height()],
@@ -147,7 +146,7 @@ difference() {
 };
 
 difference() {
-  // friction fit back pcb margin (outer).
+  // Friction fit back pcb margin (outer).
   translate([
     cartridge_width() / -2 + cartridge_wall_thickness() + cartridge_friction_fit_tolerance(),
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
@@ -160,7 +159,7 @@ difference() {
     ]);
   };
 
-  // friction fit back pcb margin (inner).
+  // Friction fit back pcb margin (inner).
   translate([
     cartridge_width() / -2 + cartridge_wall_thickness() + cartridge_pcb_margin(),
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
@@ -174,7 +173,7 @@ difference() {
   };
 };
 
-// friction fit left connector.
+// Friction fit left connector.
 translate([
   cartridge_connector_spacing() / -2 + cartridge_friction_fit_tolerance() - cartridge_connector_tolerance() - cartridge_connector_stand_width(),
   cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
@@ -187,7 +186,7 @@ translate([
   ]);
 };
 
-// friction fit right connector.
+// Friction fit right connector.
 translate([
   cartridge_connector_spacing() / 2 + cartridge_friction_fit_tolerance() - cartridge_connector_tolerance(),
   cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),

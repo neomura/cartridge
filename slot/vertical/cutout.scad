@@ -1,6 +1,6 @@
-use <measurements.scad>;
+use <../../measurements.scad>;
 
-module cartridge_slot_cutout(height) {
+module cartridge_slot_vertical_cutout(height) {
   linear_extrude(height) {
     hull() {
       translate([

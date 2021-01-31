@@ -1,10 +1,10 @@
-use <measurements.scad>;
-use <submodules/neomura/logo/logo.scad>;
+use <../measurements.scad>;
+use <../submodules/neomura/logo/logo.scad>;
 
 difference() {
   union() {
     difference() {
-      // outer shell.
+      // Outer shell.
       translate([
         0,
         cartridge_depth() / 2,
@@ -13,7 +13,7 @@ difference() {
         rotate([90, 0, 0]) {
           linear_extrude(cartridge_depth() - cartridge_wall_thickness() - cartridge_engraving_depth()) {
             hull() {
-              // bottom left.
+              // Bottom left.
               translate([
                 cartridge_width() / -2 + cartridge_wall_thickness(),
                 cartridge_wall_thickness(),
@@ -21,7 +21,7 @@ difference() {
                 circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
               }
 
-              // bottom right.
+              // Bottom right.
               translate([
                 cartridge_width() / 2 - cartridge_wall_thickness(),
                 cartridge_wall_thickness(),
@@ -29,7 +29,7 @@ difference() {
                 circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
               }
 
-              // top left.
+              // Top left.
               translate([
                 cartridge_width() / -2 + cartridge_wall_thickness(),
                 cartridge_height() - cartridge_wall_thickness(),
@@ -37,7 +37,7 @@ difference() {
                 circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
               }
 
-              // top right.
+              // Top right.
               translate([
                 cartridge_width() / 2 - cartridge_wall_thickness(),
                 cartridge_height() - cartridge_wall_thickness(),
@@ -49,7 +49,7 @@ difference() {
         };
       };
 
-      // pcb back clearance cutout.
+      // PCB back clearance cutout.
       translate([
         cartridge_width() / -2 + cartridge_wall_thickness() + cartridge_pcb_margin(),
         cartridge_depth() / 2 - cartridge_wall_thickness() - cartridge_pcb_back_clearance(),
@@ -62,7 +62,7 @@ difference() {
         ]);
       };
 
-      // pcb and front clearance cutout.
+      // PCB and front clearance cutout.
       translate([
         cartridge_width() / -2 + cartridge_wall_thickness(),
         cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
@@ -76,7 +76,7 @@ difference() {
       };
     };
 
-    // wall around left connector.
+    // Wall around left connector.
     translate([
       cartridge_connector_spacing() / -2 - cartridge_connector_tolerance() - cartridge_wall_thickness() - cartridge_connector_stand_width(),
       cartridge_depth() / 2 - cartridge_wall_thickness() - cartridge_pcb_back_clearance(),
@@ -89,7 +89,7 @@ difference() {
       ]);
     };
 
-    // wall around right connector.
+    // Wall around right connector.
     translate([
       cartridge_connector_spacing() / 2 - cartridge_connector_tolerance() - cartridge_wall_thickness(),
       cartridge_depth() / 2 - cartridge_wall_thickness() - cartridge_pcb_back_clearance(),
@@ -103,7 +103,7 @@ difference() {
     };
   };
 
-  // pin cutout for left connector.
+  // Pin cutout for left connector.
   translate([
     cartridge_connector_spacing() / -2 - cartridge_connector_tolerance() - cartridge_connector_stand_width(),
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
@@ -116,7 +116,7 @@ difference() {
     ]);
   };
 
-  // pin cutout for right connector.
+  // Pin cutout for right connector.
   translate([
     cartridge_connector_spacing() / 2 - cartridge_connector_tolerance(),
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
@@ -129,8 +129,7 @@ difference() {
     ]);
   };
 
-  // remove a little from the center pillar as it tends to distort the the back
-  // panel with the friction fit.
+  // Remove a little from the center pillar as it tends to distort the the back panel with the friction fit.
   translate([
     - cartridge_connector_tolerance() - cartridge_connector_spacing() / 2,
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
