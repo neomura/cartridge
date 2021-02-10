@@ -1,4 +1,4 @@
-# [neomura/cartridge](./readme.md)/Documentation
+# [neomura/cartridge](./readme.md)/Shell
 
 Neomura cartridges contain not only the game data, but also the CPU, RAM and audio/video generation electronics; by contrast, consoles are somewhat breakout boards.
 
