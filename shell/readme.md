@@ -6,7 +6,7 @@ Neomura cartridges contain not only the game data, but also the CPU, RAM and aud
 
 ### PCB
 
-The Neomura cartridge format is intended to contain a 40.64x40.64mm PCB, equivalent to 15x15 2.54mm pads with a 1.27mm margin on all sides (which must be clear of components, except the pin headers).
+The Neomura cartridge format is intended to contain a 43.18x43.18mm PCB, equivalent to 16x16 2.54mm pads with a 1.27mm margin on all sides (which must be clear of components, except the pin headers).
 
 Note that the PCB is mounted with components facing the back of the cartridge.
 
