@@ -198,3 +198,16 @@ translate([
     cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion(),
   ]);
 };
+
+// Center pillar.
+translate([
+  - cartridge_connector_spacing() / 2,
+  cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
+  0,
+]) {
+  cube([
+    cartridge_connector_spacing(),
+    cartridge_pcb_front_clearance() + cartridge_pcb_tolerance() + cartridge_pcb_thickness() + cartridge_pcb_tolerance() + cartridge_connector_stand_height() + cartridge_connector_pin_height() + cartridge_connector_tolerance() - cartridge_loose_fit_tolerance(),
+    cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion(),
+  ]);
+};
