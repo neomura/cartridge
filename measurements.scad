@@ -2,7 +2,7 @@ function cartridge_pad_spacing() = 2.54;
 
 function cartridge_wall_sides() = 32;
 function cartridge_pcb_width() = cartridge_pad_spacing() * 17;
-function cartridge_pcb_height() = cartridge_pad_spacing() * 17;
+function cartridge_pcb_height() = cartridge_pad_spacing() * 15.5;
 function cartridge_pcb_thickness() = 1.6;
 function cartridge_pcb_margin() = cartridge_pad_spacing() / 2;
 function cartridge_pcb_tolerance() = 0.25;
