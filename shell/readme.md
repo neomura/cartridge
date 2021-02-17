@@ -6,13 +6,11 @@ Neomura cartridges contain not only the game data, but also the CPU, RAM and aud
 
 ### PCB
 
-The Neomura cartridge format is intended to contain a 43.18x39.37mm PCB, equivalent to 16x14.5 2.54mm pads with a 1.27mm margin on all sides (which must be clear of components, except the pin headers).
-
-Note that the PCB is mounted with components facing the back of the cartridge.
+The Neomura cartridge format is intended to contain a 42x40.37mm PCB, a little more than 16.5x15.5 2.54mm pads with enough clearance for most common through-hole components.  0.68mm of margin on the left, top and right sides must be kept clear except for the pin headers.
 
 ### Engravings
 
-On the front are a "pill-shaped" "grip" area featuring the Neomura logo, an area for a label, and an arrow directing the user to insert it into the cartridge slot.
+On the front are a "pill-shaped" "grip" area featuring the Neomura logo, an area for a 40x30mm label, and an arrow directing the user to insert it into the cartridge slot.
 
 ```
           .-----------------------.
@@ -52,46 +50,25 @@ On the front are a "pill-shaped" "grip" area featuring the Neomura logo, an area
 
 ## Electrical contacts
 
-Two male 6-pin 2.54mm pin headers are present on the underside, spaced one 2.54mm pad apart.
+A male 15-pin 2.54mm pin header is present on the underside.
 
-Physically, these resemble the following:
+From the front, left to right, its pins are:
 
-```
-                            -.
-------.       . . . . . .    | connector pin height (2.5mm)
-       |      | | | | | |   -'
-      .-.    .-----------.  -.
-      | |    |           |   | connector stand height (2.5mm)
-      | |    |           |  -'
-   =======  ===============
-       '      ' ' ' ' ' '
-'-''-''-'    '-----------'
- |  |  |           |
- |  |  |           '- connector stand width (15.24mm)
- |  |  |
- |  |  '- connector stand length (2.54mm)
- |  |
- |  '- connector stand inset (1.27mm)
- |
- '- connector pin protrusion (3.81mm)
-```
-
-From the front, left to right, these pins are:
-
-| Position | Description                                                     |
-| -------- | --------------------------------------------------------------- |
-| Left 1   | NTSC composite video output (yellow); expects 75ohm impedence.  |
-| Left 2   | Analog audio output (white); expects 75ohm impedence.           |
-| Left 3   | Pad data 3 (see below).                                         |
-| Left 4   | Pad data 2 (see below).                                         |
-| Left 5   | Pad data 1 (see below).                                         |
-| Left 6   | Pad data 0 (see below).                                         |
-| Right 1  | Ground.                                                         |
-| Right 2  | 5V, max 100mA supply from console to cartridge.                 |
-| Right 3  | Pad clock (see below).                                          |
-| Right 4  | Pad latch (see below).                                          |
-| Right 5  | Reserved; intended for use with programming or debugging tools. |
-| Right 6  | Short to ground to reset the game.                              |
+- Ground.
+- NTSC composite video output (yellow); expects 75ohm impedence.
+- Left audio output (white); expects 75ohm impedence.
+- Right audio output (red); expects 75ohm impedence.
+- Reserved for future use.
+- Reserved for future use.
+- Pad latch (see below).
+- Pad clock (see below).
+- Pad data 0 (see below).
+- Pad data 1 (see below).
+- Pad data 2 (see below).
+- Pad data 3 (see below).
+- Reset A; connect with reset B to reset the game.
+- Reset B.
+- 5V, max 250mA supply from console to cartridge.
 
 ### Pads
 

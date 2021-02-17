@@ -146,11 +146,11 @@ difference() {
 };
 
 difference() {
-  // Friction fit back pcb margin (outer).
+  // Friction fit front pcb margin (outer).
   translate([
     cartridge_width() / -2 + cartridge_wall_thickness() + cartridge_friction_fit_tolerance(),
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
-    cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion() + cartridge_friction_fit_tolerance(),
+    cartridge_pin_inset() + cartridge_pin_length() + cartridge_friction_fit_tolerance(),
   ]) {
     cube([
       - cartridge_friction_fit_tolerance() + cartridge_pcb_tolerance() + cartridge_pcb_width() + cartridge_pcb_tolerance() - cartridge_friction_fit_tolerance(),
@@ -159,11 +159,11 @@ difference() {
     ]);
   };
 
-  // Friction fit back pcb margin (inner).
+  // Friction fit front pcb margin (inner).
   translate([
     cartridge_width() / -2 + cartridge_wall_thickness() + cartridge_pcb_margin(),
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
-    cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion() + cartridge_pcb_margin(),
+    cartridge_pin_inset() + cartridge_pin_length() + cartridge_pcb_margin(),
   ]) {
     cube([
       cartridge_pcb_tolerance() - cartridge_pcb_margin() + cartridge_pcb_width() - cartridge_pcb_margin() + cartridge_pcb_tolerance(),
@@ -171,43 +171,71 @@ difference() {
       cartridge_pcb_tolerance() - cartridge_pcb_margin() + cartridge_pcb_height() - cartridge_pcb_margin() + cartridge_pcb_tolerance()
     ]);
   };
+
+  // Cutout for pin header.
+  translate([
+    cartridge_friction_fit_tolerance() - cartridge_pin_tolerance() - cartridge_pins_width() / 2,
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_front_clearance() - cartridge_pad_spacing() - cartridge_pin_tolerance(),
+    cartridge_pin_inset() + cartridge_pin_length(),
+  ]) {
+    cube([
+      - cartridge_friction_fit_tolerance() + cartridge_pin_tolerance() + cartridge_pins_width() + cartridge_pin_tolerance() - cartridge_friction_fit_tolerance(),
+      cartridge_pin_tolerance() + cartridge_pin_height() + cartridge_pin_tolerance(),
+      cartridge_pcb_margin(),
+    ]);
+  };
 };
 
-// Friction fit left connector.
+// Friction fit connector.
 translate([
-  cartridge_connector_spacing() / -2 + cartridge_friction_fit_tolerance() - cartridge_connector_tolerance() - cartridge_connector_stand_width(),
+  cartridge_friction_fit_tolerance() - cartridge_pin_tolerance() - cartridge_pins_width() / 2,
   cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
   0,
 ]) {
   cube([
-    - cartridge_friction_fit_tolerance() + cartridge_connector_tolerance() + cartridge_connector_stand_width() + cartridge_connector_tolerance() - cartridge_friction_fit_tolerance(),
-     cartridge_pcb_front_clearance() + cartridge_pcb_tolerance() + cartridge_pcb_thickness() + cartridge_pcb_tolerance() + cartridge_connector_stand_height() - cartridge_connector_tolerance(),
-    cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion(),
+    - cartridge_friction_fit_tolerance() + cartridge_pin_tolerance() + cartridge_pins_width() + cartridge_pin_tolerance() - cartridge_friction_fit_tolerance(),
+     cartridge_pcb_front_clearance() - cartridge_pin_height() - cartridge_pin_tolerance(),
+    cartridge_pin_inset() + cartridge_pin_length(),
   ]);
 };
 
-// Friction fit right connector.
-translate([
-  cartridge_connector_spacing() / 2 + cartridge_friction_fit_tolerance() - cartridge_connector_tolerance(),
-  cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
-  0,
-]) {
-  cube([
-    - cartridge_friction_fit_tolerance() + cartridge_connector_tolerance() + cartridge_connector_stand_width() + cartridge_connector_tolerance() - cartridge_friction_fit_tolerance(),
-    cartridge_pcb_front_clearance() + cartridge_pcb_tolerance() + cartridge_pcb_thickness() + cartridge_pcb_tolerance() + cartridge_connector_stand_height() - cartridge_connector_tolerance(),
-    cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion(),
-  ]);
-};
+difference() {
+  // Pin surround block.
+  translate([
+    - cartridge_pcb_width() / 2,
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
+    cartridge_pin_inset() + cartridge_pin_length(),
+  ]) {
+    cube([
+      cartridge_pcb_width(),
+      cartridge_pcb_front_clearance(),
+      cartridge_pin_retainer_length() + cartridge_pad_spacing() - cartridge_pin_reinforcement_margin() + cartridge_wall_thickness(),
+    ]);
+  };
 
-// Center pillar.
-translate([
-  - cartridge_connector_spacing() / 2,
-  cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
-  0,
-]) {
-  cube([
-    cartridge_connector_spacing(),
-    cartridge_pcb_front_clearance() + cartridge_pcb_tolerance() + cartridge_pcb_thickness() + cartridge_pcb_tolerance() + cartridge_connector_stand_height() + cartridge_connector_pin_height() + cartridge_connector_tolerance() - cartridge_loose_fit_tolerance(),
-    cartridge_connector_pin_inset() + cartridge_connector_pin_protrusion(),
-  ]);
+  // Cutout for pin retainer.
+  translate([
+    - cartridge_pin_tolerance() - cartridge_pins_width() / 2,
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_tolerance() + cartridge_pcb_front_clearance() - cartridge_pin_tolerance() - cartridge_pin_height() - cartridge_pin_tolerance(),
+    cartridge_pin_inset() + cartridge_pin_length(),
+  ]) {
+    cube([
+      cartridge_pin_tolerance() + cartridge_pins_width() + cartridge_pin_tolerance(),
+      cartridge_pin_tolerance() + cartridge_pin_height() + cartridge_pin_tolerance(),
+      cartridge_pin_retainer_length() + cartridge_pcb_tolerance(),
+    ]);
+  };
+
+  // Cutout for pin retainer reinforcement.
+  translate([
+    cartridge_pin_reinforcement_margin() - cartridge_pins_width() / 2,
+    cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_tolerance() + cartridge_pcb_front_clearance() - cartridge_pin_tolerance() - cartridge_pin_height() - cartridge_pin_tolerance() + cartridge_pin_reinforcement_margin(),
+    cartridge_pin_inset() + cartridge_pin_length() + cartridge_pin_retainer_length() + cartridge_pcb_tolerance(),
+  ]) {
+    cube([
+       - cartridge_pin_reinforcement_margin() + cartridge_pins_width() - cartridge_pin_reinforcement_margin(),
+      cartridge_pin_tolerance() + cartridge_pin_height() + cartridge_pin_tolerance() - cartridge_pin_reinforcement_margin(),
+      cartridge_pad_spacing() - cartridge_pin_reinforcement_margin(),
+    ]);
+  };
 };
