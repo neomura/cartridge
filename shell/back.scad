@@ -86,3 +86,13 @@ difference() {
     ]);
   };
 };
+
+translate([
+    0, 
+    cartridge_depth() / 2 - cartridge_wall_thickness(), 
+    cartridge_pin_inset() + cartridge_pin_length() + cartridge_pcb_height() / 2,
+]) {
+  rotate([90, 0, 0]) {
+    cartridge_version_stamp("CARTRIDGE SHELL", "BACK V0.0.0");
+  };
+};

@@ -239,3 +239,13 @@ difference() {
     ]);
   };
 };
+    
+translate([
+    0, 
+    cartridge_depth() / -2 + cartridge_wall_thickness() + cartridge_engraving_depth(), 
+    cartridge_pin_inset() + cartridge_pin_length() + cartridge_pin_retainer_length() + cartridge_wall_thickness() + (cartridge_pcb_height() - cartridge_pin_retainer_length() - cartridge_wall_thickness()) / 2,
+]) {
+  rotate([90, 0, 180]) {
+    cartridge_version_stamp("CARTRIDGE SHELL", "FRONT V0.0.0");
+  };
+};
