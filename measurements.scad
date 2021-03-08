@@ -1,3 +1,5 @@
+use <submodules/neomura/logo/logo.scad>;
+
 function cartridge_pad_spacing() = 2.54;
 
 function cartridge_wall_sides() = 32;
@@ -37,3 +39,33 @@ function cartridge_depth() = cartridge_engraving_depth() + cartridge_wall_thickn
 
 function cartridge_slot_depth_tolerance() = 0.175;
 function cartridge_slot_width_tolerance() = 0.225;
+
+function cartridge_version_stamp_line_spacing() = 4;
+function cartridge_version_stamp_size() = 3;
+function cartridge_version_stamp_height() = 0.2;
+
+module cartridge_version_stamp(first_line, second_line) {
+  linear_extrude(cartridge_version_stamp_height()) {
+    translate([0, cartridge_version_stamp_line_spacing() + 0.2]) {
+      logo(cartridge_version_stamp_size(), 0.075);
+    };
+
+    text(
+      first_line,
+      cartridge_version_stamp_size(),
+      "Liberation Mono:Bold",
+      halign = "center",
+      valign = "center"
+    );
+
+    translate([0, -cartridge_version_stamp_line_spacing()]) {
+      text(
+        second_line,
+        cartridge_version_stamp_size(),
+        "Liberation Mono:Bold",
+        halign = "center",
+        valign = "center"
+      );
+    };
+  };
+};
