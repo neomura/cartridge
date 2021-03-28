@@ -16,6 +16,42 @@ difference() {
             cartridge_width() / -2 + cartridge_wall_thickness(),
             cartridge_wall_thickness(),
           ]) {
+            circle(r = cartridge_wall_thickness() - cartridge_elephants_foot_adjustment_width(), $fn = cartridge_wall_sides());
+          }
+
+          // Bottom right.
+          translate([
+            cartridge_width() / 2 - cartridge_wall_thickness(),
+            cartridge_wall_thickness(),
+          ]) {
+            circle(r = cartridge_wall_thickness() - cartridge_elephants_foot_adjustment_width(), $fn = cartridge_wall_sides());
+          }
+
+          // Top left.
+          translate([
+            cartridge_width() / -2 + cartridge_wall_thickness(),
+            cartridge_height() - cartridge_wall_thickness(),
+          ]) {
+            circle(r = cartridge_wall_thickness() - cartridge_elephants_foot_adjustment_width(), $fn = cartridge_wall_sides());
+          }
+
+          // Top right.
+          translate([
+            cartridge_width() / 2 - cartridge_wall_thickness(),
+            cartridge_height() - cartridge_wall_thickness(),
+          ]) {
+            circle(r = cartridge_wall_thickness() - cartridge_elephants_foot_adjustment_width(), $fn = cartridge_wall_sides());
+          }
+        };
+      };
+
+      linear_extrude(cartridge_engraving_depth() + cartridge_wall_thickness() - cartridge_elephants_foot_adjustment_height()) {
+        hull() {
+          // Bottom left.
+          translate([
+            cartridge_width() / -2 + cartridge_wall_thickness(),
+            cartridge_wall_thickness(),
+          ]) {
             circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
           }
 
@@ -54,7 +90,7 @@ difference() {
     0,
   ]) {
     rotate([90, 0, 0]) {
-      linear_extrude(cartridge_engraving_depth()) {
+      linear_extrude(cartridge_engraving_depth() + 0.1) {
         // Grip.
         difference() {
           hull() {
@@ -239,10 +275,10 @@ difference() {
     ]);
   };
 };
-    
+
 translate([
-    0, 
-    cartridge_depth() / -2 + cartridge_wall_thickness() + cartridge_engraving_depth(), 
+    0,
+    cartridge_depth() / -2 + cartridge_wall_thickness() + cartridge_engraving_depth(),
     cartridge_pin_inset() + cartridge_pin_length() + cartridge_pin_retainer_length() + cartridge_wall_thickness() + (cartridge_pcb_height() - cartridge_pin_retainer_length() - cartridge_wall_thickness()) / 2,
 ]) {
   rotate([90, 0, 180]) {
