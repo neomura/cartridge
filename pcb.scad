@@ -15,14 +15,27 @@ translate([
 
 // Pins.
 translate([
+  - cartridge_pins_width() / 2 + cartridge_pin_reinforcement_margin(),
+  cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_front_clearance() - cartridge_pin_height() + cartridge_pin_reinforcement_margin(),
+  cartridge_pin_inset(),
+]) {
+  cube([
+    - cartridge_pin_reinforcement_margin() + cartridge_pins_width() - cartridge_pin_reinforcement_margin(),
+    - cartridge_pin_reinforcement_margin() + cartridge_pin_height() - cartridge_pin_reinforcement_margin(),
+    cartridge_pin_length(),
+  ]);
+};
+
+// Pin retainer.
+translate([
   - cartridge_pins_width() / 2,
   cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_front_clearance() - cartridge_pin_height(),
-  cartridge_pin_inset(),
+  cartridge_pin_inset() + cartridge_pin_length(),
 ]) {
   cube([
     cartridge_pins_width(),
     cartridge_pin_height(),
-    cartridge_pin_length() + cartridge_pin_retainer_length(),
+    cartridge_pin_retainer_length(),
   ]);
 };
 
