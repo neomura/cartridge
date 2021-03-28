@@ -14,17 +14,17 @@ difference() {
           // Bottom left.
           translate([
             cartridge_width() / -2 + cartridge_wall_thickness(),
-            cartridge_wall_thickness(),
+            cartridge_wall_thickness() - cartridge_back_width_adjustment(),
           ]) {
-            circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
+            circle(r = cartridge_wall_thickness() - cartridge_back_width_adjustment(), $fn = cartridge_wall_sides());
           }
 
           // Bottom right.
           translate([
             cartridge_width() / 2 - cartridge_wall_thickness(),
-            cartridge_wall_thickness(),
+            cartridge_wall_thickness() - cartridge_back_width_adjustment(),
           ]) {
-            circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
+            circle(r = cartridge_wall_thickness() - cartridge_back_width_adjustment(), $fn = cartridge_wall_sides());
           }
 
           // Top left.
@@ -32,7 +32,7 @@ difference() {
             cartridge_width() / -2 + cartridge_wall_thickness(),
             cartridge_height() - cartridge_wall_thickness(),
           ]) {
-            circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
+            circle(r = cartridge_wall_thickness() - cartridge_back_width_adjustment(), $fn = cartridge_wall_sides());
           }
 
           // Top right.
@@ -40,7 +40,7 @@ difference() {
             cartridge_width() / 2 - cartridge_wall_thickness(),
             cartridge_height() - cartridge_wall_thickness(),
           ]) {
-            circle(r = cartridge_wall_thickness(), $fn = cartridge_wall_sides());
+            circle(r = cartridge_wall_thickness() - cartridge_back_width_adjustment(), $fn = cartridge_wall_sides());
           }
         };
       };

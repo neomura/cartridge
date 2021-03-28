@@ -36,6 +36,7 @@ function cartridge_loose_fit_tolerance() = 0.125;
 function cartridge_width() = cartridge_wall_thickness() + cartridge_pcb_tolerance() + cartridge_pcb_width() + cartridge_pcb_tolerance() + cartridge_wall_thickness();
 function cartridge_height() = cartridge_pin_inset() + cartridge_pin_length() + cartridge_pcb_height() + cartridge_pcb_tolerance() + cartridge_wall_thickness();
 function cartridge_depth() = cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_front_clearance() + cartridge_pcb_tolerance() + cartridge_pcb_thickness() + cartridge_pcb_tolerance() + cartridge_pcb_back_clearance() + cartridge_wall_thickness();
+function cartridge_back_width_adjustment() = 0.2;
 
 function cartridge_slot_depth_tolerance() = 0.175;
 function cartridge_slot_width_tolerance() = 0.225;
