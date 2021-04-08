@@ -72,11 +72,11 @@ From the front, left to right, its pins are:
 
 ### Pads
 
-Compatible with up to 4 Super Nintendo Entertainment System-like controllers.
+Compatible with up to 4 Nintendo Entertainment System-like controllers.
 
 The following buttons are defined:
 
-- Face down.
+- Face right.
 - Face left.
 - Select.
 - Start.
@@ -84,16 +84,10 @@ The following buttons are defined:
 - Down.
 - Left.
 - Right.
-- Face right.
-- Face up.
-- Left shoulder.
-- Right shoulder.
 
 ```
-  left shoulder                                                right shoulder
 
-
-           up                                                 face up
+           up
 
 
 
@@ -103,18 +97,52 @@ left                 right      select   start      face left         face right
 
 
 
-           down                                              face down
+           down
 
 ```
 
-The latch output is pulled to ground most of the time.  Once per 60th of a second, it is pulled to 5V for 12μs.
+The latch and clock outputs are initially pulled to 5V.
 
-The clock output is pulled to 5V most of the time.  6μs after the latch output is pulled back to ground, the clock output is pulled to ground for 6μs and back to 5V for 6μs, 11 times.
+When the cartridge wishes to poll its pads for input, it:
 
-Every time the clock output is pulled to ground, all attached controllers advance to the next button, in the order defined above.
-
-When the latch output is pulled to 5V, the first button is selected.
-
-Before the clock output is pulled to ground, pad data 0-3 will be pulled to ground by the corresponding controller if the current button is down.
+- Pulls the the latch output to ground.
+- Waits 6μs.
+- Reads the state of the face right button from pad data 0, 1, 2 and 3.
+- Pulls the clock output to ground.
+- Waits 6μs.
+- Pulls the clock output to 5V.
+- Waits 6μs.
+- Reads the state of the face left button from pad data 0, 1, 2 and 3.
+- Pulls the clock output to ground.
+- Waits 6μs.
+- Pulls the clock output to 5V.
+- Waits 6μs.
+- Reads the state of the select button from pad data 0, 1, 2 and 3.
+- Pulls the clock output to ground.
+- Waits 6μs.
+- Pulls the clock output to 5V.
+- Waits 6μs.
+- Reads the state of the start button from pad data 0, 1, 2 and 3.
+- Pulls the clock output to ground.
+- Waits 6μs.
+- Pulls the clock output to 5V.
+- Waits 6μs.
+- Reads the state of the up button from pad data 0, 1, 2 and 3.
+- Pulls the clock output to ground.
+- Waits 6μs.
+- Pulls the clock output to 5V.
+- Waits 6μs.
+- Reads the state of the down button from pad data 0, 1, 2 and 3.
+- Pulls the clock output to ground.
+- Waits 6μs.
+- Pulls the clock output to 5V.
+- Waits 6μs.
+- Reads the state of the left button from pad data 0, 1, 2 and 3.
+- Pulls the clock output to ground.
+- Waits 6μs.
+- Pulls the clock output to 5V.
+- Waits 6μs.
+- Reads the state of the right button from pad data 0, 1, 2 and 3.
+- Pulls the latch output to 5V.
 
 The cartridge is responsible for pull-up to 5V on pad data 0-3.
