@@ -240,12 +240,12 @@ difference() {
   translate([
     - cartridge_pcb_tolerance() - cartridge_pcb_width() / 2,
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness(),
-    cartridge_pin_inset() + cartridge_pin_length() - cartridge_wall_thickness() - cartridge_pin_tolerance(),
+    cartridge_pin_inset() + cartridge_pin_length() - cartridge_pin_clip_length() - cartridge_pin_tolerance(),
   ]) {
     cube([
       cartridge_pcb_tolerance() + cartridge_pcb_width() + cartridge_pcb_tolerance(),
       cartridge_pcb_front_clearance(),
-      cartridge_pin_retainer_length() + cartridge_pad_spacing() - cartridge_pin_reinforcement_margin() + cartridge_wall_thickness() + cartridge_wall_thickness() + cartridge_pin_tolerance(),
+      cartridge_pin_retainer_length() + cartridge_pad_spacing() - cartridge_pin_reinforcement_margin() + cartridge_pin_clip_length() + cartridge_wall_thickness() + cartridge_pin_tolerance(),
     ]);
   };
 
@@ -266,12 +266,12 @@ difference() {
   translate([
     cartridge_pin_reinforcement_margin() - cartridge_pins_width() / 2,
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_tolerance() + cartridge_pcb_front_clearance() - cartridge_pin_tolerance() - cartridge_pin_height() - cartridge_pin_tolerance() + cartridge_pin_reinforcement_margin(),
-    cartridge_pin_inset() + cartridge_pin_length() - cartridge_pin_tolerance() - cartridge_wall_thickness(),
+    cartridge_pin_inset() + cartridge_pin_length() - cartridge_pin_tolerance() - cartridge_pin_clip_length(),
   ]) {
     cube([
        - cartridge_pin_reinforcement_margin() + cartridge_pins_width() - cartridge_pin_reinforcement_margin(),
       cartridge_pin_tolerance() + cartridge_pin_height() + cartridge_pin_tolerance() - cartridge_pin_reinforcement_margin(),
-      cartridge_wall_thickness() + cartridge_pin_tolerance() + cartridge_pin_retainer_length() + cartridge_pcb_tolerance() + cartridge_pad_spacing() - cartridge_pin_reinforcement_margin(),
+      cartridge_pin_clip_length() + cartridge_pin_tolerance() + cartridge_pin_retainer_length() + cartridge_pcb_tolerance() + cartridge_pad_spacing() - cartridge_pin_reinforcement_margin(),
     ]);
   };
 };

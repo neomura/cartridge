@@ -19,6 +19,7 @@ function cartridge_pin_height() = cartridge_pad_spacing();
 function cartridge_pins_width() = cartridge_pins() * cartridge_pad_spacing() + 0.25;
 function cartridge_pin_reinforcement_margin() = 0.75;
 function cartridge_pin_retainer_length() = 2.5;
+function cartridge_pin_clip_length() = 0.8;
 
 function cartridge_engraving_margin() = 2;
 function cartridge_logo_height() = 3;

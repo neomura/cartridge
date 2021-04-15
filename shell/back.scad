@@ -152,12 +152,12 @@ difference() {
   translate([
     cartridge_width() / -2 + cartridge_wall_thickness(),
     cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness() - 0.1,
-    cartridge_pin_inset() + cartridge_pin_length() - cartridge_pin_tolerance() - cartridge_wall_thickness() - cartridge_loose_fit_tolerance(),
+    cartridge_pin_inset() + cartridge_pin_length() - cartridge_pin_tolerance() - cartridge_pin_clip_length() - cartridge_loose_fit_tolerance(),
   ]) {
     cube([
       cartridge_pcb_tolerance() + cartridge_pcb_width() + cartridge_pcb_tolerance(),
       cartridge_pcb_front_clearance() + cartridge_pcb_tolerance() + 0.1,
-      cartridge_wall_thickness() + cartridge_pin_tolerance() + cartridge_loose_fit_tolerance(),
+      cartridge_pin_clip_length() + cartridge_pin_tolerance() + cartridge_loose_fit_tolerance(),
     ]);
   };
 };
@@ -166,12 +166,12 @@ difference() {
 translate([
   cartridge_pin_reinforcement_margin() + cartridge_loose_fit_tolerance() - cartridge_pins_width() / 2,
   cartridge_depth() / -2 + cartridge_engraving_depth() + cartridge_wall_thickness() + cartridge_pcb_front_clearance() - cartridge_pin_reinforcement_margin() + cartridge_pin_tolerance(),
-  cartridge_pin_inset() + cartridge_pin_length() - cartridge_pin_tolerance() - cartridge_wall_thickness(),
+  cartridge_pin_inset() + cartridge_pin_length() - cartridge_pin_tolerance() - cartridge_pin_clip_length(),
 ]) {
   cube([
     - cartridge_loose_fit_tolerance() - cartridge_pin_reinforcement_margin() + cartridge_pins_width() - cartridge_pin_reinforcement_margin() - cartridge_loose_fit_tolerance(),
     cartridge_pin_reinforcement_margin(),
-    cartridge_wall_thickness(),
+    cartridge_pin_clip_length(),
   ]);
 };
 
